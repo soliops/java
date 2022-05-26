@@ -40,7 +40,13 @@ public class For_plus {
 		 * 정답 합계 90
 		 */
 		
-		
+		int a2;
+		int total2=0;
+		for(a2=1;a2<10;a2++) {
+			total2+=a2*2;
+				
+		}
+		System.out.println("최종값:"+total2);
 	}
 
 }

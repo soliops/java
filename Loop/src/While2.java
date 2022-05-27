@@ -33,6 +33,15 @@ public class While2 {
 		 *4,7,10,13,16,19,22,
 		 */
 		
+		int ee= 1;
+		int ff =3;
+		int gg;
+		while(ee<=7) {
+			gg=ee*ff+1;
+			System.out.print(gg+" ");
+			ee++;
+		}
+		
 	}
 
 }

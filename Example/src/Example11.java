@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Example11 {
 
@@ -20,6 +21,14 @@ public class Example11 {
 		 double c = money - b;
 		 sysout c
 		 */
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("할인 %를 입력해 주세요: ");
+		int money = 60000;
+		int coupon = sc.nextInt();
+		double total = money - money *coupon*0.01;
+		System.out.println("최종 금액 "+total);
+		sc.close();	
 	}
 
 }

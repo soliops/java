@@ -3,39 +3,35 @@ import java.util.Scanner;
 public class Example1 {
 
 	public static void main(String[] args) {
-
-		/* 응용문제
-		 * while문으로 코드를 작성해야 하며, 프로세서는 다음과 같습니다.
-		 * 사용자가 상품을 전체 선택하였습니다.
-		 * "7000 결제하시겠습니까?"라고 출력되며, 숫자 1이라고 입력하면
-		 * 최종결제 금액에 추가 되어 집니다. 단, 2라고 입력시
-		 * 최종결제 금액에 추가 되어지면 안 됩니다.
+		/* UP&DOWN 게임
+		 * A파트 : PC 랜덤, Scanner(5번) 이용
+		 * B파트 : PC에서 랜덤 숫자와 사용자가 뽑은 숫자를 비교 및 결과 처리 
 		 * 
-		 * 총 질문 횟수는 4번 입니다.
-		 * 마지막에 최종 결제 금액이 나오도록 코드를 작성하시오.
+		 * 
+		 기회는 총 5번
+		 1.PC가 숫자를 하나 선택?? random 
+		 (숫자는 1~10)
+		 
+		 2.총 기회는 5번 남았습니다. 1~10까지 번호 중 하나의 번호를 입력?  라고 표시
+		 3.만약에 PC가 숫자 7을 선택한 기준에서 사용자 숫자와 비교를 
+		 -PC : 7 사용자 : 2 => 결과 : UP  (조건문)
+		 4.총 기회는 4번 남았습니다. 1~10까지 번호 중 하나의 번호를 입력?  라고 표시
+		 5.PC : 7 사용자 : 4 => 결과 : UP
+		 6.총 기회는 3번 남았습니다. 1~10까지 번호 중 하나의 번호를 입력?  라고 표시
+		 7.PC : 7 사용자 : 7 => 정답입니다. 모든 프로세서는 정지
 		 */
-		
-		Scanner sc = new Scanner(System.in);
-		int a=1;
-		int total=0;
-		int user;
-		final int money=7000;
-		while (a<=4) {
-			System.out.println("7000 결제하시겠습니까?");
-			user=sc.nextInt();
-			
-			if(user==1) {
-			
-				total+=money;
-			}
-	
-			a++;
-		}
-		sc.close();
-		
-		System.out.printf("최종 결제 금액: %d원", total);
-
-		
+		Example2 sc = new Example2();
+		Scanner updown = new Scanner(System.in);
+		int pc_num = (int)(Math.random()*10+1);
+		int w=5;
+		do {
+			System.out.printf("총 기회는 %s번 남았습니다. 1~10까지 번호 중 하나를 입력하세요?",w);
+			int user_number = updown.nextInt();
+			sc.result(pc_num,user_number);
+			w--;
+		}while(w>0);
+		updown.close();
 	}
-
+	
+	
 }

@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Example1 {
@@ -23,14 +24,30 @@ public class Example1 {
 		Example2 sc = new Example2();
 		Scanner updown = new Scanner(System.in);
 		int pc_num = (int)(Math.random()*10+1);
+		/*일반 random에서 (random double 자료형)*/
+		/*util을 이용한 random형식*/
+		Random r = new Random();
+			int rr= r.nextInt(10)+1;   //random util로 pc가 뽑은 숫자 
+			System.out.println(rr);   
 		int w=5;
 		do {
 			System.out.printf("총 기회는 %s번 남았습니다. 1~10까지 번호 중 하나를 입력하세요?",w);
 			int user_number = updown.nextInt();
 			sc.result(pc_num,user_number);
+			String out = sc.result1();
+			System.out.println(out);
+			
+			int check = out.indexOf("정답"); //indexof : 단어 검색( -1: 없음 0: 있음)
+			if(check==0) {
+				System.out.println("PC 숫자는 "+pc_num+"였습니다.");
+				break;
+				
+			}
 			w--;
 		}while(w>0);
 		updown.close();
+		System.exit(0);
+		System.gc();
 	}
 	
 	

@@ -37,7 +37,7 @@ private int total1=0;
 			this.total1+=this.ar[w];//합계
 			w++;
 		}while(w<this.ea);
-		System.out.println(this.total1); //결과
+		System.out.println("최종 값 : "+this.total1); //결과
 
 	}
 

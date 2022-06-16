@@ -1,47 +1,32 @@
 
 public class Class3 {
-	//Package를 사용하지 못함 (default)라서
-	public static void main(String[] args) {
-		// 자료형(데이터형) 변환
-		// double -> int로 변환
-		double a = 137.5;
-		int b = (int) a;
-		
-		//int -> double로 변환
-		int c = 35;
-		double d = (double)c;
-		System.out.println(d);
 
-		//String -> int 
-		String x = "35";
-		int z = Integer.parseInt(x);
-		//parseint (int형에 사용하는 산술연산 언어임)
-		System.out.println(z);
+	public static void main(String[] args) {
 		
-		//String -> int 
-		String xx = "35";
-		String xx2 = "156";
-		//int zz = Integer.parseInt(xx);
-		int zz =Integer.valueOf(xx); 
-		//valueof 플래시 메소드 (메소드함수) -> parseint
-		int total = Integer.parseInt(xx)+Integer.parseInt(xx2);
-		//문자형을 숫자형으로 변환화여 산술계산을 처리함
-		System.out.println(total);
-		
-		
-		//Long 사용ㅈ시 Long.parseLong 사용함
-		String j = "1923456789";
-		String j2="923456789";
-		//long total2 = Integer.parseInt(j)+Integer.parseInt(j2);
-		long total2=Long.parseLong(j2)+Long.parseLong(j2);
-		double total3 = (double)total2;
-		System.out.println(total3);
-		
-		//문자(char) -> 문자(String) : 기본지식만 제공
-		char p = 'N';
-		String f = String.valueOf(p);
-		//문자 ->문자 (valueof)만사용
-		System.out.println(p);
+		apink m = new apink();
+		m.f_method("이보미");
+		apink.cafe LA = m.new cafe();
+		LA.call();
 	}
 
+}
+abstract class father{ //추상 클래스 (abstract 사용하면 추상)
+	public  String u_name; //전역변수 선언(abstract가 없으므로 추상이 아님.)	
+	public abstract void f_method(String name); //추상 메소드
+}
+class apink extends father{
+	
+	@Override
+	public void f_method(String name) { //추상 메소드를 실제 메소드로 전환
+		this.u_name=name; //추상 메소드에 있는 전역변수로 값을 이관함
+		
+	}
+	class cafe{
+		String msg = apink.this.u_name; 
+		//부모 클래스에 있는 전역변수를 자식 클래스 전역변수로 이관
+		public void call() {
+			String msg2 = this.msg+"님 짱!!";
+			System.out.println(msg2);
+		}
+	}
 }

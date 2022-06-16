@@ -60,7 +60,7 @@ public abstract class awt6_abstract {
 					String user_num=awt6_abstract.this.usernum.getText();
 						
 						if(user_num.equals("")) {
-							msg.setText("숫자를 입력해주세요.");
+							msg.setText("인증번호 4자리를 입력하세요.");
 						}else {
 							try {
 							int user_num2 =Integer.parseInt(usernum.getText());
@@ -68,12 +68,12 @@ public abstract class awt6_abstract {
 							numcheck(user_num2);//숫자를 넘김
 							String result =numok();
 							if(result==null) {
-								msg.setText("본인인증에 실패하셨습니다.");
+								msg.setText("인증번호를 다시 확인 하시길 바랍니다.");
 							}else {
-								msg.setText("본인인증에 성공하셨습니다.");
+								msg.setText("인증이 완료되었습니다.");
 							}
 							} catch (Exception e2) {
-								msg.setText("숫자만 입력하세요!!");
+								msg.setText("숫자만 입력해주세요.");
 							}
 						}
 				
